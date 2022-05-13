@@ -1,0 +1,15 @@
+version: '3'
+services:
+  x11-in-docker:
+    container_name: x11-in-docker
+    image: x11-in-docker:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DISPLAY=${DISPLAY:?$DISPLAY not set}
+      - REAL_USERNAME=${USER:?$USER not set}
+      - REAL_UID=${REAL_UID?$REAL_UID not set}
+      - REAL_GID=${REAL_GID?$REAL_GID not set}
+    volumes:
+      - /tmp/.X11-unix/:/tmp/.X11-unix:ro
