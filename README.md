@@ -10,6 +10,8 @@ As far as I can work out the only things you need to use the X server from insid
 - The matching UID, GID
 - The DISPLAY environment variable
 
+The scripts make sure everything inside the container matches the user starting the container and mounts /tmp/.unix.
+
 ## Things that don't work (yet?)
 - Using your real home directory in the container
 
